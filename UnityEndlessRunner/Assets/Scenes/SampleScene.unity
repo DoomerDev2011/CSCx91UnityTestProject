@@ -628,7 +628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 3.22, y: 7.37, z: -9.52}
+  m_LocalPosition: {x: 0, y: 4, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 824408224}
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 1183666642}
   - component: {fileID: 1183666641}
   m_Layer: 5
-  m_Name: Distance
+  m_Name: distanceRan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 1242467937}
   - component: {fileID: 1242467936}
   m_Layer: 5
-  m_Name: settingsIcon
+  m_Name: pauseIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -830,7 +830,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 25}
+  m_SizeDelta: {x: 30, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1242467936
 MonoBehaviour:
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 0dc86c33057034f4bbf20c3651bb9f9c, type: 3}
+  m_Texture: {fileID: 2800000, guid: 892300c2b7868cd4999b7c3ba24df806, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 1301258499}
   - component: {fileID: 1301258498}
   m_Layer: 5
-  m_Name: Sound
+  m_Name: soundButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1197,7 +1197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -60, y: -18}
+  m_AnchoredPosition: {x: -63, y: -18}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1422949572
@@ -1253,6 +1253,7 @@ GameObject:
   - component: {fileID: 1446142499}
   - component: {fileID: 1446142501}
   - component: {fileID: 1446142500}
+  - component: {fileID: 1446142502}
   m_Layer: 5
   m_Name: scoreNumber
   m_TagString: Untagged
@@ -1321,6 +1322,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446142498}
   m_CullTransparentMesh: 1
+--- !u!114 &1446142502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446142498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec48643d23858548b7a557233d350f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScore: 0
+  topScore: 0
+  scoreText: {fileID: 1446142500}
+  topScoreText: {fileID: 563008404}
 --- !u!1 &1479754771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,7 +1362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479754771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.18, y: -2.2334526, z: -46.8}
+  m_LocalPosition: {x: 0.43, y: 2.33, z: -49.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2011160154}
@@ -1366,7 +1383,7 @@ GameObject:
   - component: {fileID: 1779212893}
   - component: {fileID: 1779212892}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: pauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1581,7 +1598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011160153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3301973, y: 4.5634527, z: -6.4882326}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1479754772}
