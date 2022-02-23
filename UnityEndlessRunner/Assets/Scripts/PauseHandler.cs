@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class PauseHandler : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject settingsMenu;
+    
     
     private bool isActive = false;
 
@@ -15,7 +17,7 @@ public class PauseHandler : MonoBehaviour
     }
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.Escape) && isActive){
+        if(Input.GetKeyDown(KeyCode.Escape) && isActive && !settingsMenu.activeSelf){
             Resume();
         }
         else if(Input.GetKeyDown(KeyCode.Escape) && !isActive){
