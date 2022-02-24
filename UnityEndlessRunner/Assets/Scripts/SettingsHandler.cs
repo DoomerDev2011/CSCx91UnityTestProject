@@ -63,4 +63,25 @@ public class SettingsHandler : MonoBehaviour
         soundScale();
     }
 
+    public FullscreenBotton(){
+        isFullscreen = !isFullscreen;
+        fullscreenToggle.value = isFullscreen;
+    }
+    public void resolutionChanger(){
+        switch(resolutionDropdown.value){
+            case 0:
+                Screen.SetResolution(1920,1080);
+                break;
+            case 1:
+                Screen.SetResolution(1280,1024);
+                break;
+            case 2:
+                Screen.SetResolution(800,600);
+                break;
+
+    
+
+        }
+    }
+
 }
