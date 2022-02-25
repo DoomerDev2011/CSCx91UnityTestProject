@@ -8,9 +8,10 @@ public class PauseHandler : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject settingsMenu;
-    
+    public Toggle muteToggle;
     
     private bool isActive = false;
+    private bool isMuted = false;
 
     void Start(){
         pauseMenu.SetActive(isActive);
@@ -34,6 +35,17 @@ public class PauseHandler : MonoBehaviour
        else{
            Time.timeScale = 1f;
         } 
+    }
+
+    public void toggleMute(){
+        isMuted = !isMuted;
+        if(isMuted){
+            AudioListener.volume = 0;
+        }
+        else{
+            AudioListener.volume = PlayerPrefs.GetFloat("soundScale");
+        }
+        
     }
 
     void Resume(){

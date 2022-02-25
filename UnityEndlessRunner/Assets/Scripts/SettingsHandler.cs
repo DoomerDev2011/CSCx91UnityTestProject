@@ -14,15 +14,14 @@ public class SettingsHandler : MonoBehaviour
     public Toggle fullscreenToggle;
 
     private bool isActive = false;
+    private bool isFullscreen = true;
 
-    void Start()
-    {
+    void Start(){
         settingsMenu.SetActive(isActive);
         initPlayerSettings();
     }
 
-    void Update()
-    {
+    void Update(){
         if(Input.GetKeyDown(KeyCode.Escape) && isActive){
             Return();
         }
@@ -54,6 +53,28 @@ public class SettingsHandler : MonoBehaviour
         PlayerPrefs.SetFloat("soundScale", soundSlider.value);
     }
 
+    public void toggleFullscreen(){
+        isFullscreen = !isFullscreen;
+        fullscreenToggle.isOn = isFullscreen;
+        PlayerPrefs.SetInt("isFullscreen", isFullscreen ? 1 : 0);
+        resolutionChanger();
+    }
+
+    public void resolutionChanger(){
+        switch(resolutionDropdown.value){
+            case 0:
+                Screen.SetResolution(1920,1080, isFullscreen);
+                break;
+            case 1:
+                Screen.SetResolution(1280,1024, isFullscreen);
+                break;
+            case 2:
+                Screen.SetResolution(800,600, isFullscreen);
+                break;
+        }
+        PlayerPrefs.SetInt("resDropdownValue", resolutionDropdown.value);
+    }
+
     public void initPlayerSettings(){
         fovSlider.value = PlayerPrefs.GetFloat("fovScale");
         fovScale();
@@ -61,27 +82,9 @@ public class SettingsHandler : MonoBehaviour
         uiScale();
         soundSlider.value = PlayerPrefs.GetFloat("soundScale");
         soundScale();
-    }
-
-    public FullscreenBotton(){
-        isFullscreen = !isFullscreen;
-        fullscreenToggle.value = isFullscreen;
-    }
-    public void resolutionChanger(){
-        switch(resolutionDropdown.value){
-            case 0:
-                Screen.SetResolution(1920,1080);
-                break;
-            case 1:
-                Screen.SetResolution(1280,1024);
-                break;
-            case 2:
-                Screen.SetResolution(800,600);
-                break;
-
-    
-
-        }
+        resolutionDropdown.value = PlayerPrefs.GetInt("resDropdownValue");
+        isFullscreen = PlayerPrefs.GetInt("isFullscreen")==1 ? true : false;
+        resolutionChanger();
     }
 
 }
