@@ -55,7 +55,6 @@ public class SettingsHandler : MonoBehaviour
 
     public void toggleFullscreen(){
         isFullscreen = !isFullscreen;
-        fullscreenToggle.isOn = isFullscreen;
         PlayerPrefs.SetInt("isFullscreen", isFullscreen ? 1 : 0);
         resolutionChanger();
     }
@@ -84,6 +83,7 @@ public class SettingsHandler : MonoBehaviour
         soundScale();
         resolutionDropdown.value = PlayerPrefs.GetInt("resDropdownValue");
         isFullscreen = PlayerPrefs.GetInt("isFullscreen")==1 ? true : false;
+        fullscreenToggle.SetIsOnWithoutNotify(isFullscreen);
         resolutionChanger();
     }
 
