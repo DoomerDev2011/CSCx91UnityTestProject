@@ -633,7 +633,6 @@ Transform:
   - {fileID: 8690563551915550291}
   - {fileID: 4411723745384345262}
   - {fileID: 8662554299701639802}
-  - {fileID: 2344304506126081954}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1614,11 +1613,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4411381381660132490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.1, y: 2.8, z: -12.77}
+  m_LocalPosition: {x: 10.107156, y: 3, z: 10.27}
   m_LocalScale: {x: 9, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8607836767508808828}
-  m_RootOrder: 4
+  m_Father: {fileID: 8662554299701639802}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7766023715975677706
 MeshFilter:
@@ -2852,7 +2851,7 @@ GameObject:
   - component: {fileID: 8662554299701639802}
   m_Layer: 0
   m_Name: obstacles
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2871,6 +2870,7 @@ Transform:
   - {fileID: 7032497409443817729}
   - {fileID: 1875113030258200803}
   - {fileID: 3780278737476179813}
+  - {fileID: 2344304506126081954}
   m_Father: {fileID: 8607836767508808828}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
