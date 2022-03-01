@@ -65,9 +65,8 @@ public class PauseHandler : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void quitGame(){
+    public void Quit(){
         Application.Quit();
     }
-
 
 }
