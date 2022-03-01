@@ -553,4 +553,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/User/Documents/GitHub/CSCx91UnityTestProject/UnityEndlessRunner/builtGame(windows)/UnityEndlessRunner.exe
+  playerPath: C:/Users/isaia/GitHub Repos/CSCx91UnityTestProject/UnityEndlessRunner/builtGame(windows)/UnityEndlessRunner.exe

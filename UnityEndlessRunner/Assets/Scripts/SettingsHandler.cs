@@ -74,6 +74,10 @@ public class SettingsHandler : MonoBehaviour
         PlayerPrefs.SetInt("resDropdownValue", resolutionDropdown.value);
     }
 
+    public void quitGame(){
+        Application.Quit();
+    }
+
     public void initPlayerSettings(){
         fovSlider.value = PlayerPrefs.GetFloat("fovScale");
         fovScale();
