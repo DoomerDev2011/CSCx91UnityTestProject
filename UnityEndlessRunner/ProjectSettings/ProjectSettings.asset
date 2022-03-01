@@ -665,7 +665,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     Build: 0
-    Collab: 0
+    Collab: 1
     Game Performance: 0
     Legacy Analytics: 0
     Purchasing: 0
@@ -684,7 +684,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 1
   cloudProjectId: 1156d701-423f-4e9c-9074-2d0b792e524f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
