@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PlayerController : MonoBehaviour
+public class RunnerControl : MonoBehaviour
 {
     public bool hit;
     public bool jump;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             startRow = rowRange.x;
         }
         row = startRow;
-        rb.MovePosition(new Vector3(row * spacingMult, rb.position.y, 0.0f));
+        rb.MovePosition(new Vector3(0.0f, rb.position.y, row * spacingMult));
         pressed = false;
         alive = true;
         grounded = true;
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if (movementX > 0 && !pressed)
+        if (movementX < 0 && !pressed)
         {
             if (row != rowRange.y)
             {
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
             }
             pressed = true;
         }
-        else if (movementX < 0 && !pressed)
+        else if (movementX > 0 && !pressed)
         {
             if (row != rowRange.x)
             {
@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.MovePosition(new Vector3(row * spacingMult, rb.position.y, 0.0f));
+        rb.MovePosition(new Vector3(0.0f, rb.position.y, row * spacingMult));
         if (jump)
         {
             rb.AddForce(new Vector3(0.0f, jumpSpeed * 100, 0.0f));

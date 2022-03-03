@@ -8,16 +8,23 @@ public class LevelController : MonoBehaviour
     public float columns;
     private float position;
     public Vector3 scale;
-    public Vector2 spawn;
-    public Vector2 deSpawn;
+    public Vector3 spawn;
+    public Vector3 deSpawn;
     public PlaneController pc;
     public GameObject player;
     public GameObject plane;
     // Start is called before the first frame update
     void Start()
     {
-        scale = plane.GetComponent<Transform>().lossyScale;
+        scale = plane.GetComponent<Transform>().localScale;
         pc = plane.GetComponent<PlaneController>();
+        deSpawn = player.GetComponent<Transform>().position;
+        spawn = new Vector3(deSpawn.x * scale.x * 10.0f * columns, deSpawn.y - 1, player.GetComponent<Transform>().position.z);
+        for(int x = 0; x < columns; x++)
+        {
+            plane.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
+            Instantiate(plane, new Vector3(deSpawn.x + scale.x * 10.0f * (columns - x), deSpawn.y - 1, player.GetComponent<Transform>().position.z), player.GetComponent<Transform>().rotation);
+        }
     }
 
     // Update is called once per frame
@@ -27,6 +34,11 @@ public class LevelController : MonoBehaviour
         {
             pc.Remove();
         }
+    }
+    public void SpawnPlane()
+    {
+        plane.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
+        Instantiate(plane, spawn, player.GetComponent<Transform>().rotation);
     }
     
 }
