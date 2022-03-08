@@ -12,7 +12,7 @@ public class LevelController : MonoBehaviour
     public Vector3 deSpawn;
     public PlaneController pc;
     public GameObject player;
-    public GameObject plane;
+    public GameObject [] plane = new GameObject[14];
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,9 @@ public class LevelController : MonoBehaviour
         for(int x = 0; x < columns; x++)
         {
             plane.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
-            Instantiate(plane, new Vector3(deSpawn.x + scale.x * 5.0f * (columns - x), deSpawn.y - 1, player.GetComponent<Transform>().position.z), player.GetComponent<Transform>().rotation);
+             int r = Random.Range(0,13);
+        
+            Instantiate(plane[r], new Vector3(deSpawn.x + scale.x * 5.0f * (columns - x), deSpawn.y - 1, player.GetComponent<Transform>().position.z), player.GetComponent<Transform>().rotation);
         }
     }
 
