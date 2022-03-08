@@ -2089,6 +2089,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7082819572350250818}
+  - component: {fileID: 6591024103812802575}
+  - component: {fileID: 8631662247952976658}
   m_Layer: 0
   m_Name: obs1
   m_TagString: Untagged
@@ -2114,6 +2116,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6591024103812802575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695388829942227588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7c635a112acca26ac90a4418c46ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  deSpawn: {x: -5, y: 1}
+  level: {fileID: 0}
+  rb: {fileID: 8631662247952976658}
+--- !u!54 &8631662247952976658
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695388829942227588}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!1 &6860573171948005338
 GameObject:
   m_ObjectHideFlags: 0
