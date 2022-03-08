@@ -16,15 +16,15 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scale = plane.GetComponent<Transform>().localScale;
-        pc = plane.GetComponent<PlaneController>();
-        deSpawn = new Vector3 (player.GetComponent<Transform>().position.x - scale.x * 5.0f, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z);
-        spawn = new Vector3(deSpawn.x + scale.x * 5.0f * columns, deSpawn.y - 1, player.GetComponent<Transform>().position.z);
+        
         for(int x = 0; x < columns; x++)
         {
             plane.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
-             int r = Random.Range(0,13);
-        
+            int r = Random.Range(0,13);
+            scale = new Vector3(plane.GetComponent<Transform>().localScale.x + scale.x, scale.y, scale.z);
+            pc = plane.GetComponent<PlaneController>();
+            deSpawn = new Vector3 (player.GetComponent<Transform>().position.x - scale.x * 5.0f, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z);
+            spawn = new Vector3(deSpawn.x + scale.x * 5.0f * columns, deSpawn.y - 1, player.GetComponent<Transform>().position.z);
             Instantiate(plane[r], new Vector3(deSpawn.x + scale.x * 5.0f * (columns - x), deSpawn.y - 1, player.GetComponent<Transform>().position.z), player.GetComponent<Transform>().rotation);
         }
     }
