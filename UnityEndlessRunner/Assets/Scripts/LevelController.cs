@@ -18,12 +18,12 @@ public class LevelController : MonoBehaviour
     {
         scale = plane.GetComponent<Transform>().localScale;
         pc = plane.GetComponent<PlaneController>();
-        deSpawn = player.GetComponent<Transform>().position;
-        spawn = new Vector3(deSpawn.x * scale.x * 10.0f * columns, deSpawn.y - 1, player.GetComponent<Transform>().position.z);
+        deSpawn = new Vector3 (player.GetComponent<Transform>().position.x - scale.x * 5.0f, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z);
+        spawn = new Vector3(deSpawn.x + scale.x * 5.0f * columns, deSpawn.y - 1, player.GetComponent<Transform>().position.z);
         for(int x = 0; x < columns; x++)
         {
             plane.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
-            Instantiate(plane, new Vector3(deSpawn.x + scale.x * 10.0f * (columns - x), deSpawn.y - 1, player.GetComponent<Transform>().position.z), player.GetComponent<Transform>().rotation);
+            Instantiate(plane, new Vector3(deSpawn.x + scale.x * 5.0f * (columns - x), deSpawn.y - 1, player.GetComponent<Transform>().position.z), player.GetComponent<Transform>().rotation);
         }
     }
 
