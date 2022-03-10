@@ -9,6 +9,7 @@ public class PlaneController : MonoBehaviour
     public Vector2 deSpawn;
     public LevelController level;
     public Rigidbody rb;
+    public GameObject ground;
     void Start()
     {
         

@@ -7,10 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 222081965538557502, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
-      propertyPath: m_TagString
-      value: Walls
-      objectReference: {fileID: 0}
     - target: {fileID: 3276149802754112665, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -55,9 +51,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5858541215467718562, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858541215467718562, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6071408764178590852, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
       propertyPath: m_Name
       value: obs2 rot
       objectReference: {fileID: 0}
+    - target: {fileID: 8897006247583284186, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+      propertyPath: ground
+      value: 
+      objectReference: {fileID: 606455075959108270}
+    - target: {fileID: 8897006247583284186, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+      propertyPath: deSpawn.x
+      value: -22
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+--- !u!1 &606455075959108270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9137564436029503543, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+  m_PrefabInstance: {fileID: 8549426233195203225}
+  m_PrefabAsset: {fileID: 0}
