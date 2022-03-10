@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class Bigjump : MonoBehaviour {
 
     //Unfinished Script//
-    static var gravity : Vector3;
+    //static var gravity : Vector3;
     
     void Start () {
         var x = 0;
@@ -17,3 +18,4 @@ public class Bigjump : MonoBehaviour {
         Physics.Gravity = Vector3(x,y,z);
     }
 }
+*/
