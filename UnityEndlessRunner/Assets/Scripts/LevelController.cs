@@ -40,12 +40,18 @@ public class LevelController : MonoBehaviour
             pc.Remove();
         }
     }
-    public void SpawnPlane()
+    public int SpawnPlane(int prev)
     {
         int r = Random.Range(0, 14);
+
+        while(r ==  prev){
+            int r = Random.Range(0, 14);
+        }
+        
         GameObject planeObj = plane[r];
         planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
         Instantiate(planeObj, spawn, Quaternion.Euler(0, 90 + planeObj.GetComponent<Transform>().rotation.eulerAngles.y, 0));
+        return r;
     }
     
 }
