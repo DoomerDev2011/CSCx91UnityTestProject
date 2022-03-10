@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour
     public Vector3 deSpawn;
     public PlaneController pc;
     public GameObject player;
+    public GameObject ground;
     public GameObject [] plane = new GameObject[14];
     // Start is called before the first frame update
     void Start()
@@ -19,14 +20,15 @@ public class LevelController : MonoBehaviour
 
         for (int x = 0; x < columns; x++)
         {
-            int r = Random.Range(0, 3);
+            int r = Random.Range(0, 14);
             GameObject planeObj = plane[r];
-            planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
-            scale = planeObj.GetComponent<Transform>().localScale;
             pc = planeObj.GetComponent<PlaneController>();
-            deSpawn = new Vector3(player.GetComponent<Transform>().position.x - scale.z * 22.0f, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z);
-            spawn = new Vector3(deSpawn.x + scale.z *22.0f* columns, deSpawn.y - 1, player.GetComponent<Transform>().position.z);
-            Instantiate(plane[r], new Vector3(deSpawn.x + scale.z * 22.0f * (columns - x), deSpawn.y - 1, player.GetComponent<Transform>().position.z), Quaternion.Euler(0,90,0));
+            ground = pc.ground;
+            scale = ground.GetComponent<Transform>().lossyScale;
+            deSpawn = new Vector3(player.GetComponent<Transform>().position.x - scale.z, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z);
+            spawn = new Vector3(deSpawn.x + scale.z * columns, deSpawn.y - 1, 0.0f);
+            planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
+            Instantiate(planeObj, new Vector3(deSpawn.x + scale.z * (columns - x), deSpawn.y - 1, player.GetComponent<Transform>().position.z), Quaternion.Euler(0,90+planeObj.GetComponent<Transform>().rotation.eulerAngles.y,0));
         }
     }
 
@@ -40,10 +42,10 @@ public class LevelController : MonoBehaviour
     }
     public void SpawnPlane()
     {
-        int r = Random.Range(0, 3);
+        int r = Random.Range(0, 14);
         GameObject planeObj = plane[r];
         planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
-        Instantiate(planeObj, spawn, Quaternion.Euler(0, 90, 0));
+        Instantiate(planeObj, spawn, Quaternion.Euler(0, 90 + planeObj.GetComponent<Transform>().rotation.eulerAngles.y, 0));
     }
     
 }
