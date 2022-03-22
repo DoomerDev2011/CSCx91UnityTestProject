@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 1581553685}
   - component: {fileID: 1581553684}
   - component: {fileID: 1581553688}
+  - component: {fileID: 1581553689}
   m_Layer: 6
   m_Name: PlayArea
   m_TagString: Untagged
@@ -440,12 +441,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   columns: 10
+  last: 0
   scale: {x: 0, y: 0, z: 0}
   spawn: {x: 0, y: 0, z: 0}
   deSpawn: {x: 0, y: 0, z: 0}
   pc: {fileID: 0}
   player: {fileID: 1738424177}
-  plane: {fileID: 5938968222187244528, guid: 1f3361cd01b39c749b198e0cb83b0334, type: 3}
+  ground: {fileID: 0}
+  plane:
+  - {fileID: 3620590961060186372, guid: 6f163736fe674f640bce592407b8e3ca, type: 3}
+  - {fileID: 2704000036966077826, guid: e24fe87ff9bb8ec43990d5c4c1a6896d, type: 3}
+  - {fileID: 6695388829942227588, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+  - {fileID: 2514226605271770653, guid: 77cdbe83d03e11f42afc32cb0446abf6, type: 3}
+  - {fileID: 6071408764178590852, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+  - {fileID: 4064595881992514973, guid: 12564f2037f8851489586107e9d4a4ad, type: 3}
+  - {fileID: 3227740781957365701, guid: 07456de7dffbe87648d24bb72150a3bd, type: 3}
+  - {fileID: 7166424966202506897, guid: 4f235b956712dac4daae6ffdc0495b64, type: 3}
+  - {fileID: 6698678269860504725, guid: ef525f6635fea963b918674afb311c09, type: 3}
+  - {fileID: 2118176140368630180, guid: 65ffd5cd7d36efb4ab15e3a7993d551a, type: 3}
+  - {fileID: 988845160050354270, guid: 38c9eb40e25645366a405a363c065c86, type: 3}
+  - {fileID: 5450604177701845830, guid: 2952f2d93250602419ff051b3e5d4844, type: 3}
+  - {fileID: 1994951856888816271, guid: fd8e30644371392b48f114944842c41d, type: 3}
+  - {fileID: 1425817611552320691, guid: 1151aeafcf997b24e90dbcdd8a036f5b, type: 3}
+  - {fileID: 2292817258049393916, guid: d8e2f675755dbb64b80af0a5f6f2c902, type: 3}
+--- !u!54 &1581553689
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581553683}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1738424177
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +511,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738424177}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -581,8 +615,8 @@ MonoBehaviour:
   grounded: 0
   speed: 10
   slideSpeed: 0
-  jumpSpeed: 4
-  spacingMult: 6
+  jumpSpeed: 6
+  spacingMult: 8
   rowNum: 3
   delay: 0
   groundRadius: 0.5
