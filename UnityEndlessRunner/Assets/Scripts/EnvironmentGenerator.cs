@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnvironmentGenerator : MonoBehaviour
-{   
-    public float speed = 10;
+{
     public GameObject environment;              // This is our parent GameObject, which the scripts are attached to and the instantiated prefabs will be spawned under. 
     public GameObject[] availableBlocks;        // This is the array used to store the 'blocks' which we can instantiate.
 
@@ -23,7 +22,7 @@ public class EnvironmentGenerator : MonoBehaviour
     {
                                                        
         for(int i = 0; i<instantiatedBlocks.Count; i++){
-            instantiatedBlocks[i].transform.Translate(0, 0, (Time.deltaTime * speed) * -1, Camera.main.transform);
+            instantiatedBlocks[i].transform.Translate(0, 0, (Time.timeScale / 20) * -1, Camera.main.transform);
                                                             // "(Time.timeScale / 20) * -1", This moves each instantiated block 1 unit backwards every 20th of an unpaused second. 
             if(instantiatedBlocks[i].transform.position.z <= -27.5f){ 
                 Destroy(instantiatedBlocks[i]); // This destroys the GameObject and removes it from the array if it passes behind the camera.
@@ -39,18 +38,3 @@ public class EnvironmentGenerator : MonoBehaviour
 
 
 }
-/*public interface ITimeChanging
-{
-    void AddTime(float dt);
-}
-public void SetTimeBruteForce( float time)
-{
-    this.time = time;
-}
-public class TimeManager
-    {
-        float Time{get;set;}
-        IEnumerable<ITimeChanging> TimeDependants {get;set;}
-        void SetTimeBruteForce(float time);
-    }
-*/
