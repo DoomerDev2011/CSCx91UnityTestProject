@@ -40,31 +40,11 @@ public class EnvironmentGenerator : MonoBehaviour
 
     private int randomNumber(){
         int temp = UnityEngine.Random.Range(0,8);
-        if(instantiatedLast == 0 && temp == 0){
-            temp++;
-            instantiatedLast = temp;
-            return instantiatedLast;
+        while(temp == instantiatedLast){
+            temp = UnityEngine.Random.Range(0,8);
         }
-        else if(instantiatedLast == availableBlocks.Length - 1 && temp == availableBlocks.Length - 1){
-            temp--;
-            instantiatedLast = temp;
-            return instantiatedLast;
-        }
-        else if(temp == instantiatedLast){
-            int temp2 = UnityEngine.Random.Range(0,2);
-            if(temp2 == 1){
-                temp++;
-            }
-            else{
-                temp--;
-            }
-            instantiatedLast = temp;
-            return instantiatedLast;
-        }
-        else{
-            instantiatedLast = temp;
-            return instantiatedLast;
-        }
+        instantiatedLast = temp;
+        return instantiatedLast;
     }
 
 }
