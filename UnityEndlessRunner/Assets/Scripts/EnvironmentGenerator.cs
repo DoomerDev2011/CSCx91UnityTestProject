@@ -13,7 +13,7 @@ public class EnvironmentGenerator : MonoBehaviour
     
     void Start()    // Simple for loop used to spawn blocks 1, 2, and 3 at the start of the game.
     {
-        for(int i = 0; i<availableBlocks.Length - 3; i++){
+        for(int i = 0; i<5; i++){
             GameObject temp = Instantiate(availableBlocks[randomNumber()], new Vector3(0, 0, i * 27.5f), Quaternion.identity);
             temp.transform.SetParent(environment.transform, false);  
             instantiatedBlocks.Add(temp); 
@@ -39,9 +39,9 @@ public class EnvironmentGenerator : MonoBehaviour
     }
 
     private int randomNumber(){
-        int temp = UnityEngine.Random.Range(0,8);
+        int temp = UnityEngine.Random.Range(0,16);
         while(temp == instantiatedLast){
-            temp = UnityEngine.Random.Range(0,8);
+            temp = UnityEngine.Random.Range(0,16);
         }
         instantiatedLast = temp;
         return instantiatedLast;
