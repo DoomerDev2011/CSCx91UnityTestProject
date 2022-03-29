@@ -293,7 +293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068589244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -3}
+  m_LocalPosition: {x: 5, y: 1, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -342,9 +342,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548fec0c91f89e54db2d75d5761e4926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1068589246}
   environment: {fileID: 1809411971}
   availableBlocks:
-  - {fileID: 236976225919472295, guid: ce20ddb6567ee7b4aa5984a27aa50726, type: 3}
-  - {fileID: 8554607097819341536, guid: 6388dd4baf7c246468d10d1d60c35767, type: 3}
-  - {fileID: 3936663318351627962, guid: 8fbbbc5b04a32e14cb0bb6fca66cd396, type: 3}
+  - {fileID: 1711103699129726498, guid: ce20ddb6567ee7b4aa5984a27aa50726, type: 3}
+  - {fileID: 1251246478324931062, guid: 6388dd4baf7c246468d10d1d60c35767, type: 3}
+  - {fileID: 6484628176691198029, guid: 8fbbbc5b04a32e14cb0bb6fca66cd396, type: 3}
+  - {fileID: 6026237610871272535, guid: e60699865163a594ebe0fcce166e66c7, type: 3}
+  - {fileID: 1676771717507886378, guid: d624eebdaaa59b04d8c5e37383dd1f28, type: 3}
+  - {fileID: 3914491391945584162, guid: c588bfc9ec6011d42a41695003266793, type: 3}
+  - {fileID: 5820329990884262621, guid: 2651ef9aaeee8c54dbff7edba3467d79, type: 3}
+  - {fileID: 2857317031605413702, guid: 3afe6a5b71ac7bb47b04af41f68b6cf0, type: 3}
+  instantiatedLast: 30

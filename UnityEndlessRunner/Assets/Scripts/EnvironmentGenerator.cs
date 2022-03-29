@@ -8,33 +8,63 @@ public class EnvironmentGenerator : MonoBehaviour
     public GameObject[] availableBlocks;        // This is the array used to store the 'blocks' which we can instantiate.
 
     private List<GameObject> instantiatedBlocks = new List<GameObject>();  // This is the list used to store the 'blocks' which have been instantiated.
+
+    [SerializeField] int instantiatedLast = 30; // temporarily assigned to 30, because this value gets changed after the first time the randomNumber() function is called
     
     void Start()    // Simple for loop used to spawn blocks 1, 2, and 3 at the start of the game.
     {
-        for(int i = 0; i<availableBlocks.Length; i++){
-            GameObject temp = Instantiate(availableBlocks[i], new Vector3(0, 0, i * 27.5f), Quaternion.identity);
+        for(int i = 0; i<availableBlocks.Length - 3; i++){
+            GameObject temp = Instantiate(availableBlocks[randomNumber()], new Vector3(0, 0, i * 27.5f), Quaternion.identity);
             temp.transform.SetParent(environment.transform, false);  
             instantiatedBlocks.Add(temp); 
         }
     }                        
 
     void Update()
-    {
-                                                       
-        for(int i = 0; i<instantiatedBlocks.Count; i++){
-            instantiatedBlocks[i].transform.Translate(0, 0, (Time.timeScale / 20) * -1, Camera.main.transform);
-                                                            // "(Time.timeScale / 20) * -1", This moves each instantiated block 1 unit backwards every 20th of an unpaused second. 
+    {                                             
+        for(int i = 0; i<instantiatedBlocks.Count; i++){                  
+            instantiatedBlocks[i].transform.Translate(0, 0, (Time.deltaTime * -10), Camera.main.transform);
+                                                            // "(Time.deltaTime * -5), Camera.main.transform", moves everything backwards in relation to the camera.
             if(instantiatedBlocks[i].transform.position.z <= -27.5f){ 
                 Destroy(instantiatedBlocks[i]); // This destroys the GameObject and removes it from the array if it passes behind the camera.
                 instantiatedBlocks.RemoveAt(i);
             }
         }
-        if(instantiatedBlocks.Count < 3){           // Instantiates a new block every time one is removed from the array.
-            GameObject temp = Instantiate(availableBlocks[UnityEngine.Random.Range(0,3)], new Vector3(0, 0, instantiatedBlocks[1].transform.position.z + 27.5f), Quaternion.identity);
+
+        if(instantiatedBlocks.Count < 5){           // Instantiates a new block every time one is removed from the array.
+            GameObject temp = Instantiate(availableBlocks[randomNumber()], new Vector3(0, 0, instantiatedBlocks[3].transform.position.z + 27.5f), Quaternion.identity);
             temp.transform.SetParent(environment.transform, false);                                                                         
             instantiatedBlocks.Add(temp);
         }
     }
 
+    private int randomNumber(){
+        int temp = UnityEngine.Random.Range(0,8);
+        if(instantiatedLast == 0 && temp == 0){
+            temp++;
+            instantiatedLast = temp;
+            return instantiatedLast;
+        }
+        else if(instantiatedLast == availableBlocks.Length - 1 && temp == availableBlocks.Length - 1){
+            temp--;
+            instantiatedLast = temp;
+            return instantiatedLast;
+        }
+        else if(temp == instantiatedLast){
+            int temp2 = UnityEngine.Random.Range(0,2);
+            if(temp2 == 1){
+                temp++;
+            }
+            else{
+                temp--;
+            }
+            instantiatedLast = temp;
+            return instantiatedLast;
+        }
+        else{
+            instantiatedLast = temp;
+            return instantiatedLast;
+        }
+    }
 
 }
