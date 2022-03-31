@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2581963899001314476, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3669494413371737437, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781098826244924296, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277023444032396281, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591024103812802575, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6591024103812802575, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
       propertyPath: ground
       value: 

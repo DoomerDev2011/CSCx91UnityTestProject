@@ -10,6 +10,7 @@ public class PlaneController : MonoBehaviour
     public LevelController level;
     public Rigidbody rb;
     public GameObject ground;
+    public bool isSpace;
     void Start()
     {
         
@@ -32,7 +33,10 @@ public class PlaneController : MonoBehaviour
     }
     public void Remove()
     {
-        level.SpawnPlane();
+        if (!isSpace)
+        {
+            level.SpawnPlane();
+        }
         Destroy(gameObject);
     }
     public void Move()

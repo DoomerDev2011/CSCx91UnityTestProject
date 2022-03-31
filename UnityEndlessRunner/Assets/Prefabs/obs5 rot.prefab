@@ -55,9 +55,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: obs5 rot
       objectReference: {fileID: 0}
+    - target: {fileID: 3957273543693036749, guid: 38c9eb40e25645366a405a363c065c86, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4259035556161451381, guid: 38c9eb40e25645366a405a363c065c86, type: 3}
       propertyPath: m_TagString
       value: Walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353747935408080489, guid: 38c9eb40e25645366a405a363c065c86, type: 3}
+      propertyPath: level
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38c9eb40e25645366a405a363c065c86, type: 3}
