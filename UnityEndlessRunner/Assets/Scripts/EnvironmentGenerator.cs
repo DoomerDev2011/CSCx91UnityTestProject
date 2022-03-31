@@ -23,8 +23,8 @@ public class EnvironmentGenerator : MonoBehaviour
     void Update()
     {                                             
         for(int i = 0; i<instantiatedBlocks.Count; i++){                  
-            instantiatedBlocks[i].transform.Translate(0, 0, (Time.deltaTime * -10), Camera.main.transform);
-                                                            // "(Time.deltaTime * -5), Camera.main.transform", moves everything backwards in relation to the camera.
+            instantiatedBlocks[i].transform.Translate(0, 0, (Time.deltaTime * -10));
+                                                            
             if(instantiatedBlocks[i].transform.position.z <= -27.5f){ 
                 Destroy(instantiatedBlocks[i]); // This destroys the GameObject and removes it from the array if it passes behind the camera.
                 instantiatedBlocks.RemoveAt(i);
