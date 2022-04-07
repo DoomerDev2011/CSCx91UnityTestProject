@@ -22,12 +22,15 @@ public class LevelController : MonoBehaviour
         float length = 0;
         for (int x = 0; x < columns; x++)
         {
+
             int r = Random.Range(0, plane.Length);
             while (r == last)
             {
                 r = Random.Range(0, plane.Length);
             }
             GameObject planeObj = plane[r];
+            Debug.Log(r);
+            Debug.Log(planeObj.gameObject.name);
             pc = planeObj.GetComponent<PlaneController>();
             ground = pc.ground;
             scale = ground.GetComponent<Transform>().lossyScale;

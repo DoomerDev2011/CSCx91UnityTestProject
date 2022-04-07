@@ -2139,7 +2139,6 @@ MonoBehaviour:
   pc: {fileID: 0}
   player: {fileID: 1738424177}
   ground: {fileID: 0}
-  space: {fileID: 1135824689213647087, guid: f1f7027579c506f479579e17ec70ee86, type: 3}
   plane:
   - {fileID: 3201902069720413200, guid: 8e601739be6a77e498eb279261ac9c74, type: 3}
   - {fileID: 2704000036966077826, guid: e24fe87ff9bb8ec43990d5c4c1a6896d, type: 3}
