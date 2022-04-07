@@ -18,6 +18,7 @@ public class PlaneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Move();
         if(gameObject.transform.position.x < deSpawn.x)
         {
