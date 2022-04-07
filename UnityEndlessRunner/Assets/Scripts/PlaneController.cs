@@ -10,7 +10,6 @@ public class PlaneController : MonoBehaviour
     public LevelController level;
     public Rigidbody rb;
     public GameObject ground;
-    public bool isSpace;
     void Start()
     {
         
@@ -19,6 +18,7 @@ public class PlaneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Move();
         if(gameObject.transform.position.x < deSpawn.x)
         {
@@ -33,10 +33,7 @@ public class PlaneController : MonoBehaviour
     }
     public void Remove()
     {
-        if (!isSpace)
-        {
-            level.SpawnPlane();
-        }
+        level.SpawnPlane();
         Destroy(gameObject);
     }
     public void Move()

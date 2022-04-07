@@ -57,11 +57,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3957273543693036749, guid: 38c9eb40e25645366a405a363c065c86, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4259035556161451381, guid: 38c9eb40e25645366a405a363c065c86, type: 3}
       propertyPath: m_TagString
       value: Walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521928318823537871, guid: 38c9eb40e25645366a405a363c065c86, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6353747935408080489, guid: 38c9eb40e25645366a405a363c065c86, type: 3}
       propertyPath: level
