@@ -38,7 +38,7 @@ public class MainMenuHandler : MonoBehaviour
     }
 
     public void Play(){
-        SceneManager.LoadScene("EnvironmentGen");
+        SceneManager.LoadScene("Environment Gen");
     }
 
     public void Return(){
