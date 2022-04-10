@@ -22,10 +22,7 @@ public class MovementHandler : MonoBehaviour
     
     void Update()
     {
-        bool aPressed = Input.GetKeyDown("a");
         bool isMovingLeft = animator.GetBool("isMovingLeft");
-
-        bool dPressed = Input.GetKeyDown("d");
         bool isMovingRight = animator.GetBool("isMovingRight");
 
         bool spacePressed = Input.GetKeyDown("space");
@@ -34,7 +31,9 @@ public class MovementHandler : MonoBehaviour
         bool sPressed = Input.GetKeyDown("s");
         bool isRolling = animator.GetBool("isRolling");
 
-        if(Input.GetKeyDown("a") && !movingLeft && !movingRight && rows > 0){
+        bool gameOver = animator.GetBool("gameOver");
+
+        if(Input.GetKeyDown("a") && !movingLeft && !movingRight && rows > 0 && !gameOver){
             rows--;
             currentPos = transform.position;
             tempTarget = currentPos - targetPosition;          
@@ -51,7 +50,7 @@ public class MovementHandler : MonoBehaviour
         }
         
 
-        if(Input.GetKeyDown("d") && !movingRight && !movingLeft && rows < 2){
+        if(Input.GetKeyDown("d") && !movingRight && !movingLeft && rows < 2 && !gameOver){
             rows++;
             currentPos = transform.position;
             tempTarget = currentPos + targetPosition;
@@ -66,33 +65,35 @@ public class MovementHandler : MonoBehaviour
                 currentPos = Vector3.zero;
             }
         }
+
         
-
-
-        if(!isJumping && spacePressed){
+        if(!isJumping && spacePressed && !gameOver){
             animator.SetBool("isJumping", true);                // jump
         }                                       
         if(isJumping && !spacePressed){
             animator.SetBool("isJumping", false);
         }
 
-        if(!isRolling && sPressed){
+        if(!isRolling && sPressed && !gameOver){
             animator.SetBool("isRolling", true);                // roll
         }
         if(isRolling && !sPressed){
             animator.SetBool("isRolling", false);
         }
 
+
+        if(Input.GetKeyDown("k") && !movingRight && !movingLeft){
+            animator.SetBool("gameOver", true);                       // simulated game over
+        }
+
     }
 
     void moveLeft(){
         transform.position = Vector3.MoveTowards(transform.position, tempTarget, 4f * Time.deltaTime); 
-         
     }
 
     void moveRight(){
         transform.position = Vector3.MoveTowards(transform.position, tempTarget, 4f * Time.deltaTime);
-    
     }
 
 }

@@ -6,35 +6,52 @@ using UnityEngine.SceneManagement;
 
 public class PauseHandler : MonoBehaviour
 {
+    public Animator animator;
     public GameObject pauseMenu;
     public GameObject settingsMenu;
+    public GameObject gameOverMenu;
     public Toggle muteToggle;
     
+    private bool gameOver;
+    private bool gameOverMenuActive = false;
     private bool isActive = false;
     private bool isMuted = false;
 
     void Start(){
         pauseMenu.SetActive(isActive);
+        gameOverMenu.SetActive(gameOverMenuActive);
     }
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.Escape) && isActive && !settingsMenu.activeSelf){
-            Resume();
+        gameOver = animator.GetBool("gameOver");
+
+        if(!gameOver){
+            if(Input.GetKeyDown(KeyCode.Escape) && isActive && !settingsMenu.activeSelf){
+                Resume();
+            }
+
+            else if(Input.GetKeyDown(KeyCode.Escape) && !isActive){
+                Pause();
+            }
         }
-        else if(Input.GetKeyDown(KeyCode.Escape) && !isActive){
-            Pause();
+        else{
+            Invoke("gameOverFunc", 3f);
         }
+        
     }
 
     public void ToggleMenu(){
-       isActive = !isActive;
-       pauseMenu.SetActive(isActive);
-       if(isActive){
-           Time.timeScale = 0f;
-        } 
-       else{
-           Time.timeScale = 1f;
-        } 
+        if(!gameOver){
+            isActive = !isActive;
+            pauseMenu.SetActive(isActive);
+            if(isActive){
+                Time.timeScale = 0f;
+            } 
+            else{
+                Time.timeScale = 1f;
+            } 
+        }
+        
     }
 
     public void toggleMute(){
@@ -46,6 +63,11 @@ public class PauseHandler : MonoBehaviour
             AudioListener.volume = PlayerPrefs.GetFloat("soundScale");
         }
         
+    }
+
+    void gameOverFunc(){
+        gameOverMenuActive = true;
+        gameOverMenu.SetActive(gameOverMenuActive);
     }
 
     void Resume(){

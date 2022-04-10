@@ -1905,6 +1905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548fec0c91f89e54db2d75d5761e4926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1669129984}
   environment: {fileID: 985974716}
   availableBlocks:
   - {fileID: 1711103699129726498, guid: ce20ddb6567ee7b4aa5984a27aa50726, type: 3}
