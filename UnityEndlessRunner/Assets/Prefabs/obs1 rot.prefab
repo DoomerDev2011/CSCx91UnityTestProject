@@ -7,21 +7,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1541165186659721101, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
-      propertyPath: m_TagString
-      value: Walls
+    - target: {fileID: 985564064888816863, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5144682366392259006, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
-      propertyPath: m_TagString
-      value: Walls
+    - target: {fileID: 2581963899001314476, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3669494413371737437, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781098826244924296, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277023444032396281, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591024103812802575, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591024103812802575, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+      propertyPath: ground
+      value: 
+      objectReference: {fileID: 8413049921535751111}
     - target: {fileID: 6695388829942227588, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
       propertyPath: m_Name
       value: obs1 rot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6860573171948005338, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
-      propertyPath: m_TagString
-      value: Walls
       objectReference: {fileID: 0}
     - target: {fileID: 7082819572350250818, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
       propertyPath: m_RootOrder
@@ -67,9 +83,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8671812378123560427, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
-      propertyPath: m_TagString
-      value: Walls
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+--- !u!1 &8413049921535751111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 985564064888816833, guid: c010ec58846800d3faf7571f66de9a6b, type: 3}
+  m_PrefabInstance: {fileID: 8749444178839254790}
+  m_PrefabAsset: {fileID: 0}

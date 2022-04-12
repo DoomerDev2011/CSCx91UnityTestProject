@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 539215885617673610, guid: fd8e30644371392b48f114944842c41d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1994951856888816271, guid: fd8e30644371392b48f114944842c41d, type: 3}
       propertyPath: m_Name
       value: obs6 rot

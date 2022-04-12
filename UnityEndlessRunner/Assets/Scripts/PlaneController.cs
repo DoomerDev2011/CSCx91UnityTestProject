@@ -9,6 +9,7 @@ public class PlaneController : MonoBehaviour
     public Vector2 deSpawn;
     public LevelController level;
     public Rigidbody rb;
+    public GameObject ground;
     void Start()
     {
         
@@ -17,6 +18,7 @@ public class PlaneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Move();
         if(gameObject.transform.position.x < deSpawn.x)
         {
