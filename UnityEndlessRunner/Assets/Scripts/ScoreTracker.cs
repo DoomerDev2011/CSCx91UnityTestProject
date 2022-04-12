@@ -6,17 +6,24 @@ using UnityEngine;
 
 public class ScoreTracker : MonoBehaviour
 {
-    [SerializeField] double currentScore, topScore;  // Variables used to keep track of the score
-    public Text scoreText, topScoreText;  // this is the text that gets updated based on the variables above 
+    [SerializeField] double currentScore, topScore, distance;  // Variables used to keep track of the score
+    public Text scoreText, topScoreText, distanceText;  // this is the text that gets updated based on the variables above 
+    public Animator animator;
 
     void Start(){
-        currentScore = 0;                               // reset current score to 0
+        currentScore = 0;               // reset current score to 0
+        distance = 0;                         
         topScore = PlayerPrefs.GetInt("highscore", 0);   // assign topScore to player's best score
     }
-    // Update is called once per frame
+    
     void Update()
     {
-        scoreUpdate();     
+        bool gameOver = animator.GetBool("gameOver");
+
+        if(!gameOver){
+            scoreUpdate(); 
+            distanceTracker(); 
+        }
     }
 
     void scoreUpdate(){
@@ -33,5 +40,11 @@ public class ScoreTracker : MonoBehaviour
             topScoreText.text = topScore.ToString();                 
         }
 
+    }
+
+    void distanceTracker(){
+        distance += 5 * Time.deltaTime;
+        string roundedDistanceText = Math.Round(distance, 1).ToString() + "m";
+        distanceText.text = roundedDistanceText;
     }
 }
