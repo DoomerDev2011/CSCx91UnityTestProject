@@ -1,27 +1,30 @@
-/*
 using System.Collections;
 
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeSlowDown : MonoBehaviour {
-    public int timer = 100;
-    void Update() {
-        void OnTriggerEnter(Collider other) {
+
+    public float timer = 60;
+    public bool active = false;
+
+    void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player"){
-            timer -= 1;
-            if (timer == 0) {
-                timer = 100;
-                OnTriggerEnter = false;
-                }
-            else Time.timeScale = 0.5f;
-        
-            }
-
-
+            active = true;
+            Time.timeScale = 0.5f;
+            Debug.Log("Active");
         }
-
     }
 
+    private void Update(){
+        while (active){
+            timer -= Time.deltaTime;
+            Debug.Log("Timer: " + timer);
+            if(timer == 0){
+                active = false;
+                Time.timeScale = 1f;
+                timer = 60;
+            }
+        }
+    }
 }
-*/
