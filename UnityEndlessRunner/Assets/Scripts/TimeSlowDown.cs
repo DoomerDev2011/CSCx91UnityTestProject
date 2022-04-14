@@ -11,7 +11,8 @@ public class TimeSlowDown : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player"){
             active = true;
-            Time.timeScale = 0.5f;
+            Debug.Log("1");
+            //Time.timeScale = 0.5f;
             Debug.Log("Active");
         }
     }
