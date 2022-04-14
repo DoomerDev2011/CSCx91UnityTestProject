@@ -11,17 +11,11 @@ public class TimeSlowDown : MonoBehaviour {
 
     private float fixedDeltaTime;
 
-    void Awake()
-    {
-        // Make a copy of the fixedDeltaTime, it defaults to 0.02f, but it can be changed in the editor
-        this.fixedDeltaTime = Time.fixedDeltaTime;
-    }
-
-
     void OnCollisionEnter(Collision other){
         if (other.gameObject.tag == "Player"){
-            active = true;
             Debug.Log("1");
+            active = true;
+            
             //Time.timeScale = 0.5f;
             Debug.Log("Active");
         }
