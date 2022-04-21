@@ -33,7 +33,7 @@ public class PlaneController : MonoBehaviour
     }
     public void Remove()
     {
-        level.SpawnPlane(1);
+        level.SpawnPlane();
         Destroy(gameObject);
     }
     public void Move()
