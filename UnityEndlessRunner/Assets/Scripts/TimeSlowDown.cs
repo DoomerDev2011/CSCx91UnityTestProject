@@ -11,33 +11,30 @@ public class TimeSlowDown : MonoBehaviour {
 
     private float fixedDeltaTime;
 
-    void Awake()
-    {
-        // Make a copy of the fixedDeltaTime, it defaults to 0.02f, but it can be changed in the editor
-        this.fixedDeltaTime = Time.fixedDeltaTime;
-    }
 
-
-    void OnCollisionEnter(Collision other){
+    void OnTriggerEnter(Collider other){
+        Debug.Log("made it here");
         if (other.gameObject.tag == "Player"){
             active = true;
             Debug.Log("1");
-            //Time.timeScale = 0.5f;
+            Time.timeScale = 0.5f;
             Debug.Log("Active");
         }
     }
 
-    private void Update(){
-        while(active){
-            timer -= Time.fixedDeltaTime;
-            Debug.Log("Timer: " + timer);
-            if(timer == 0){
+    void Update(){
+        Debug.Log(active);
+        if (active){
+            if(timer >= 0){
+                timer -= Time.deltaTime;
+                Debug.Log("Timer: " + timer);
+            }else{
                 active = false;
                 Time.timeScale = 1f;
                 timer = 60;
                 // Adjust fixed delta time according to timescale
                 // The fixed delta time will now be 0.02 real-time seconds per frame
-                Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+                //Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
             }
         }
     }
