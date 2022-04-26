@@ -16,7 +16,7 @@ public class TimeSlowDown : MonoBehaviour {
             Debug.Log("1");
             active = true;
             
-            Time.timeScale = 0.5f;
+            //Time.timeScale = 0.5f;
             Debug.Log("Active");
         }
     }

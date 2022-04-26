@@ -3,19 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinSystem : MonoBehaviour
-{   
-    public static GameManager GameManager;
-    void OnCollisionEnter(Collision other){
-        if (other.gameObject.tag == "Player"){
-            Debug.Log("add coin");
-            GameManager.Coins += 1;
-            Destroy(gameObject);
-            print("There are "+ GameManager.Coins+" Coins");
-        }
-    }
 
-
- /*   public int score = 0;
+{
+    public int score = 0;
     public bool multiplierActive = false;
     public int timer = 100;
 
@@ -36,5 +26,5 @@ public class CoinSystem : MonoBehaviour
                 multiplierActive = false;
             }
         }else {score+=1;}
-    }*/
+    }
 }
