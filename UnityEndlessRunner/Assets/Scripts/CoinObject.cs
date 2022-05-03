@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class CoinObject: MonoBehaviour {
     
-    public GameManager gm;
+    private GameManager gm;
+
+    void Start(){
+        gm = gameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
      void OnCollisionEnter(Collision other){
          if (other.gameObject.tag == "Player"){
