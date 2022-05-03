@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public float timer = 20;
+    public float slowtimer = 20;
     public float Coins = 0;
     public bool active = false;
 
@@ -13,13 +13,13 @@ public class GameManager : MonoBehaviour
 
     void Update(){
         if (active){
-            if(Mathf.Ceil(timer) > 0){
-                timer -= Time.deltaTime * 2;
-                Debug.Log("Timer: " + Mathf.Ceil(timer));
+            if(Mathf.Ceil(slowtimer) > 0){
+                slowtimer -= Time.deltaTime * 2;
+                Debug.Log("Timer: " + Mathf.Ceil(slowtimer));
             }else{
                 active = false;
                 Time.timeScale = 1f;
-                timer = 20;
+                slowtimer = 20;
             }
         }
     } 

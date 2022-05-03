@@ -11,8 +11,9 @@ public class TimeSlowDown : MonoBehaviour {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    void OnTriggerEnter(Collider other){
-        if (other.gameObject.tag == "Player"){
+
+     void OnCollisionEnter(Collision other){
+         if (other.gameObject.tag == "Player"){
             gm.active = true;
             Time.timeScale = 0.5f;
             Destroy(this.gameObject);
