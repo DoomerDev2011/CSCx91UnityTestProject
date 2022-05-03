@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CoinObject: MonoBehaviour {
     
+    [SerializeField]
     private GameManager gm;
 
     void Start(){
-        gm = gameObject.Find("GameManager").GetComponent<GameManager>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
      void OnCollisionEnter(Collision other){
