@@ -33,6 +33,7 @@ public class SettingsHandler : MonoBehaviour
     }
 
     public void Return(){
+       Debug.Log("aaaaaaaaaa");
        isActive = false;
        settingsMenu.SetActive(isActive); 
        PlayerPrefs.Save();
