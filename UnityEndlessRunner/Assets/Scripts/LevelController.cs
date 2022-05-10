@@ -19,10 +19,23 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         last = -1;
-        float length = 0;
+        float length = 5;
         for (int x = 0; x < columns; x++)
         {
-
+            if(x == 0)
+            {
+                GameObject obj = plane[0];
+                pc = plane[0].GetComponent<PlaneController>();
+                ground = pc.ground;
+                scale = ground.GetComponent<Transform>().lossyScale;
+                length += scale.z;
+                deSpawn = new Vector3(player.GetComponent<Transform>().position.x, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z - scale.z);
+                plane[0].GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
+                Instantiate(plane[0], new Vector3(player.GetComponent<Transform>().position.x, deSpawn.y - 1, deSpawn.z + length), Quaternion.Euler(0, plane[0].GetComponent<Transform>().rotation.eulerAngles.y, 0));
+                last = 0;
+                spawn = new Vector3(deSpawn.x, deSpawn.y - 1, deSpawn.z + length);
+                continue;
+            }
             int r = Random.Range(0, plane.Length);
             while (r == last)
             {
@@ -35,11 +48,11 @@ public class LevelController : MonoBehaviour
             ground = pc.ground;
             scale = ground.GetComponent<Transform>().lossyScale;
             length += scale.z;
-            deSpawn = new Vector3(player.GetComponent<Transform>().position.x - scale.z, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z);
+            deSpawn = new Vector3(player.GetComponent<Transform>().position.x, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z - scale.z);
             planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
-            Instantiate(planeObj, new Vector3(deSpawn.x + length, deSpawn.y - 1, player.GetComponent<Transform>().position.z), Quaternion.Euler(0, 90 + planeObj.GetComponent<Transform>().rotation.eulerAngles.y, 0));
+            Instantiate(planeObj, new Vector3(player.GetComponent<Transform>().position.x, deSpawn.y - 1, deSpawn.z + length), Quaternion.Euler(0, planeObj.GetComponent<Transform>().rotation.eulerAngles.y, 0));
             last = r;
-            spawn = new Vector3(deSpawn.x + length, deSpawn.y - 1, 0.0f);
+            spawn = new Vector3(deSpawn.x, deSpawn.y - 1, deSpawn.z + length);
         }
     }
 
@@ -61,7 +74,7 @@ public class LevelController : MonoBehaviour
 
         GameObject planeObj = plane[r];
         planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
-        Instantiate(planeObj, spawn, Quaternion.Euler(0, 90 + planeObj.GetComponent<Transform>().rotation.eulerAngles.y, 0));
+        Instantiate(planeObj, spawn, Quaternion.Euler(0, planeObj.GetComponent<Transform>().rotation.eulerAngles.y, 0));
         last = r;
     }
 }

@@ -22,9 +22,10 @@ public class MovementHandler : MonoBehaviour
         rows = 1;
     }
 
-    
+
     void Update()
     {
+        targetPosition = new Vector3(targetPosition.x, currentPos.y, 0f);
         bool isMovingLeft = animator.GetBool("isMovingLeft");
         bool isMovingRight = animator.GetBool("isMovingRight");
 
@@ -36,74 +37,91 @@ public class MovementHandler : MonoBehaviour
 
         bool gameOver = animator.GetBool("gameOver");
 
-        if(!gameOver){
-            if(Input.GetKeyDown("a") && !movingLeft && !movingRight && rows > 0){
+        if (!gameOver)
+        {
+            if (Input.GetKeyDown("a") && !movingLeft && !movingRight && rows > 0)
+            {
+                Debug.Log("a has been pressed");
                 rows--;
                 currentPos = transform.position;
-                tempTarget = currentPos - targetPosition;          
+                tempTarget = currentPos - targetPosition;
                 movingLeft = true;
                 animator.SetBool("isMovingLeft", true);
             }
-            if(movingLeft){
+            if (movingLeft)
+            {
                 moveLeft();
-                if(transform.position == currentPos - targetPosition){
+                if (transform.position == currentPos - targetPosition)
+                {
                     movingLeft = false;
                     animator.SetBool("isMovingLeft", false);
                     currentPos = Vector3.zero;
                 }
             }
-        
-            if(Input.GetKeyDown("d") && !movingRight && !movingLeft && rows < 2){
+
+            if (Input.GetKeyDown("d") && !movingRight && !movingLeft && rows < 2)
+            {
+                Debug.Log("b has been pressed");
                 rows++;
                 currentPos = transform.position;
                 tempTarget = currentPos + targetPosition;
                 movingRight = true;
                 animator.SetBool("isMovingRight", true);
             }
-            if(movingRight){
+            if (movingRight)
+            {
                 moveRight();
-                if(transform.position == currentPos + targetPosition){
+                if (transform.position == currentPos + targetPosition)
+                {
                     movingRight = false;
                     animator.SetBool("isMovingRight", false);
                     currentPos = Vector3.zero;
                 }
             }
 
-        
-            if(!isJumping && !isRolling && spacePressed && rigidBody.velocity.y == 0){
+
+            if (!isJumping && !isRolling && spacePressed && rigidBody.velocity.y == 0)
+            {
                 rigidBody.AddForce(jumpHeight * 2.5f, ForceMode.Impulse);
                 animator.SetBool("isJumping", true);                                        // jump
-            }                                       
-            if(isJumping && !spacePressed){
+            }
+            if (isJumping && !spacePressed)
+            {
                 animator.SetBool("isJumping", false);
             }
 
-            if(!isRolling && rigidBody.velocity.y == 0 && sPressed ){
+            if (!isRolling && rigidBody.velocity.y == 0 && sPressed)
+            {
                 animator.SetBool("isRolling", true);                // roll
                 topCollider.enabled = false;
             }
-            if(isRolling && !sPressed){
+            if (isRolling && !sPressed)
+            {
                 animator.SetBool("isRolling", false);
                 Invoke("colliderReset", 1.3f);
             }
         }
-        
-        if(Input.GetKeyDown("k") && !movingRight && !movingLeft){
+
+        if (Input.GetKeyDown("k") && !movingRight && !movingLeft)
+        {
             animator.SetBool("gameOver", true);                       // simulated game over
         }
 
     }
 
-    void moveLeft(){
-        transform.position = Vector3.MoveTowards(transform.position, tempTarget, 4f * Time.deltaTime); 
-    }
-
-    void moveRight(){
+    void moveLeft()
+    {
         transform.position = Vector3.MoveTowards(transform.position, tempTarget, 4f * Time.deltaTime);
     }
 
-    void colliderReset(){
-        topCollider.enabled = true;
+    void moveRight()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, tempTarget, 4f * Time.deltaTime);
     }
 
+    void colliderReset()
+    {
+        topCollider.enabled = true;
+
+    }
 }
