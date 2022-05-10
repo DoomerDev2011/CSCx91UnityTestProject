@@ -1,12 +1,11 @@
-/*
+/* Script hasn't been finished yet
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bigjump : MonoBehaviour {
 
-    //Unfinished Script//
-    //static var gravity : Vector3;
+    static var gravity : Vector3;
     
     void Start () {
         var x = 0;

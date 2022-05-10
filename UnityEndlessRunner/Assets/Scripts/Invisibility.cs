@@ -1,4 +1,4 @@
-/* This script makes the player invisible. However, the issue is that when the player is invisibile, he will fall through the ground.
+/* This script makes the player invisible. However, the issue is that when the player is invisibile, he will fall through the ground. */
 
 using System.Collections;
 using System.Collections.Generic;
@@ -33,15 +33,12 @@ public class Invisibility : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "invisible"){
-
             invisible = true;
             activationtime = 0;
             col.a = .2f;
             character.color = col;
             other.gameObject.SetActive(false);
-
         }
     }
 
 }
-*/
