@@ -31,9 +31,10 @@ public class MovementHandler : MonoBehaviour
         rows = 1;
     }
 
-    
+
     void Update()
     {
+        targetPosition = new Vector3(targetPosition.x, currentPos.y, 0f);
         bool isMovingLeft = animator.GetBool("isMovingLeft");
         bool isMovingRight = animator.GetBool("isMovingRight");
 
@@ -45,27 +46,34 @@ public class MovementHandler : MonoBehaviour
 
         bool gameOver = animator.GetBool("gameOver");
 
-        if(!gameOver){
-            if(Input.GetKeyDown("a") && !movingLeft && !movingRight && rows > 0){
+        if (!gameOver)
+        {
+            if (Input.GetKeyDown("a") && !movingLeft && !movingRight && rows > 0)
+            {
+                Debug.Log("a has been pressed");
                 rows--;
                 currentPos = transform.position;
-                tempTarget = currentPos - targetPosition;          
+                tempTarget = currentPos - targetPosition;
                 movingLeft = true;
                 animator.SetBool("isMovingLeft", true);
                 footstepsSFX.Pause();
                 strafeSFX.Play();
             }
-            if(movingLeft){
+            if (movingLeft)
+            {
                 moveLeft();
-                if(transform.position == currentPos - targetPosition){
+                if (transform.position == currentPos - targetPosition)
+                {
                     movingLeft = false;
                     animator.SetBool("isMovingLeft", false);
                     footstepsSFX.Play();
                     currentPos = Vector3.zero;
                 }
             }
-        
-            if(Input.GetKeyDown("d") && !movingRight && !movingLeft && rows < 2){
+
+            if (Input.GetKeyDown("d") && !movingRight && !movingLeft && rows < 2)
+            {
+                Debug.Log("b has been pressed");
                 rows++;
                 currentPos = transform.position;
                 tempTarget = currentPos + targetPosition;
@@ -74,9 +82,11 @@ public class MovementHandler : MonoBehaviour
                 footstepsSFX.Pause();
                 strafeSFX.Play();
             }
-            if(movingRight){
+            if (movingRight)
+            {
                 moveRight();
-                if(transform.position == currentPos + targetPosition){
+                if (transform.position == currentPos + targetPosition)
+                {
                     movingRight = false;
                     animator.SetBool("isMovingRight", false);
                     footstepsSFX.Play();
@@ -84,50 +94,62 @@ public class MovementHandler : MonoBehaviour
                 }
             }
 
-        
-            if(!isJumping && !isRolling && spacePressed && rigidBody.velocity.y == 0){
+
+            if (!isJumping && !isRolling && spacePressed && rigidBody.velocity.y == 0)
+            {
                 rigidBody.AddForce(jumpHeight * 2.5f, ForceMode.Impulse);
+
                 animator.SetBool("isJumping", true);
                 footstepsSFX.Pause();
                 jumpSFX.Play();                                        // jump
             }                                       
-            if(isJumping && !spacePressed && rigidBody.velocity.y == 0){
+
+            if (isJumping && !spacePressed && rigidBody.velocity.y == 0)
+            {
                 animator.SetBool("isJumping", false);
                 footstepsSFX.Play();
             }
 
-            if(!isRolling && rigidBody.velocity.y == 0 && sPressed ){
+            if (!isRolling && rigidBody.velocity.y == 0 && sPressed)
+            {
                 animator.SetBool("isRolling", true);                // roll
                 topCollider.enabled = false;
                 footstepsSFX.Pause();
                 rollSFX.Play();
             }
-            if(isRolling && !sPressed){
+            if (isRolling && !sPressed)
+            {
                 animator.SetBool("isRolling", false);
                 Invoke("colliderReset", 1.3f);
             }
         }
+
         
         if(Input.GetKeyDown("k") && !movingRight && !movingLeft){
             backgroundMusic.Stop();
             footstepsSFX.Stop();
             whackSFX.Play();
+
             animator.SetBool("gameOver", true);                       // simulated game over
         }
 
     }
 
-    void moveLeft(){
-        transform.position = Vector3.MoveTowards(transform.position, tempTarget, 4f * Time.deltaTime); 
-    }
-
-    void moveRight(){
+    void moveLeft()
+    {
         transform.position = Vector3.MoveTowards(transform.position, tempTarget, 4f * Time.deltaTime);
     }
 
-    void colliderReset(){
-        footstepsSFX.Play();
-        topCollider.enabled = true;
+    void moveRight()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, tempTarget, 4f * Time.deltaTime);
     }
 
+
+    void colliderReset(){
+        footstepsSFX.Play();
+
+        topCollider.enabled = true;
+
+    }
 }

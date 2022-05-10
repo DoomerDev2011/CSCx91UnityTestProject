@@ -6,7 +6,7 @@ public class PlaneController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed;
-    public Vector2 deSpawn;
+    public Vector3 deSpawn;
     public LevelController level;
     public Rigidbody rb;
     public GameObject ground;
@@ -20,12 +20,12 @@ public class PlaneController : MonoBehaviour
     {
 
         Move();
-        if(gameObject.transform.position.x < deSpawn.x)
+        if(gameObject.transform.position.z < deSpawn.z)
         {
             Remove();
         }
     }
-    public void SetUp(float movement, Vector2 deSpawnPoint, LevelController levelController)
+    public void SetUp(float movement, Vector3 deSpawnPoint, LevelController levelController)
     {
         speed = movement;
         deSpawn = deSpawnPoint;
@@ -38,7 +38,7 @@ public class PlaneController : MonoBehaviour
     }
     public void Move()
     {
-        Vector3 targetVelocity = new Vector2(-speed * 10f, rb.velocity.y);
+        Vector3 targetVelocity = new Vector3(0f, 0f, -speed * 10f);
         rb.velocity = targetVelocity;
     }
 }
