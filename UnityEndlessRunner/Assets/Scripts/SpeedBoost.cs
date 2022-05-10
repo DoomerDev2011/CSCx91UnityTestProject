@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpeedBoost : MonoBehaviour {
 
-    private GameManager gm;
+    private GameManager gm; // GameManager Reference
 
     void Start(){
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -14,22 +14,10 @@ public class SpeedBoost : MonoBehaviour {
  
      void OnCollisionEnter(Collision other){
          if (other.gameObject.tag == "Player"){
-             gm.speed += 5;
+             gm.speed += 5; // Increase the speed
              gm.boosting = true;
              Destroy(this.gameObject); 
          }
-         /*if (other.gameObject.tag == "Player"){
-            this.gameObject.SetActive(false);{
-            speed = 10;
-            boosttimer -= 1;
-            if (boosttimer == 0) {
-                boosttimer = 100;
-                }
-            else boosting = false;
-            
-            
-            }
-        }*/
     
     }
 

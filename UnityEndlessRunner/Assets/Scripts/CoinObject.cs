@@ -5,17 +5,17 @@ using UnityEngine;
 public class CoinObject: MonoBehaviour {
     
     [SerializeField]
-    private GameManager gm;
+    private GameManager gm; // Reference to the GameManager
 
     void Start(){
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>(); // The Start Script is in the GameManager
     }
 
      void OnCollisionEnter(Collision other){
          if (other.gameObject.tag == "Player"){
-             gm.Coins += 1;
+             gm.Coins += 1; // Increase coins by 1
              Debug.Log ("Coins in Game manager:" + gm.Coins.ToString());
-             Destroy(this.gameObject);
+             Destroy(this.gameObject); // Destroys the power-up object
          }
      }
 }
