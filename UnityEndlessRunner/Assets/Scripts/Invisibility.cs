@@ -1,4 +1,4 @@
-/* This script makes the player invisible. However, the issue is that when the player is invisibile, he will fall through the ground. */
+/* This script makes the player's opacity invisible, however for this power-up to actually make sense, you need to turn off the Collider on the actual obsticles */
 
 using System.Collections;
 using System.Collections.Generic;
