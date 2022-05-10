@@ -22,7 +22,6 @@ public class Invisibility : MonoBehaviour {
 
     void Pickup()
     {
-        activationtime += Time.deltatime;
         if (invisible && activationtime >= 10) {
             invisible = false;
             col.a = 1;
