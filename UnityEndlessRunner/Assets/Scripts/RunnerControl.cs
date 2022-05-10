@@ -22,6 +22,9 @@ public class RunnerControl : MonoBehaviour
     private Rigidbody rb;
     public Animator animator;
     public float movementX;
+    public Collider body;
+    public Collider slideSize;
+    public AudioSource DieSfx;
     public Collider topCollider;
     public Collider bottomCollider;
     public Vector3 tempTarget;
@@ -32,6 +35,7 @@ public class RunnerControl : MonoBehaviour
     public bool isJumping;
     public bool isRolling;
     public bool gameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -243,7 +247,7 @@ public class RunnerControl : MonoBehaviour
     }
     public void UseItem()
     {
-
+        DieSfx.Play();
     }
 
 

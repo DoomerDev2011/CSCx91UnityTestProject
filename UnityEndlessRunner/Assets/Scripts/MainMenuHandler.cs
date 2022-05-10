@@ -13,6 +13,8 @@ public class MainMenuHandler : MonoBehaviour
     public Button returnButton;
     public Dropdown resolutionDropdown;
     public Toggle fullscreenToggle;
+
+    public AudioSource buttonPressSFX;
     
     private bool isActive = false;
     private bool isFullscreen = true;
@@ -80,6 +82,10 @@ public class MainMenuHandler : MonoBehaviour
         isFullscreen = PlayerPrefs.GetInt("isFullscreen")==1 ? true : false;
         fullscreenToggle.SetIsOnWithoutNotify(isFullscreen);
         resolutionChanger();
+    }
+
+    public void buttonPress(){
+        buttonPressSFX.Play();
     }
 
 }

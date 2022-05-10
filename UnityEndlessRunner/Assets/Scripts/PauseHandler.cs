@@ -11,6 +11,8 @@ public class PauseHandler : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject gameOverMenu;
     public Toggle muteToggle;
+
+    public AudioSource footstepsSFX;
     
     private bool gameOver;
     private bool gameOverMenuActive = false;
@@ -46,9 +48,11 @@ public class PauseHandler : MonoBehaviour
             pauseMenu.SetActive(isActive);
             if(isActive){
                 Time.timeScale = 0f;
+                footstepsSFX.Pause();
             } 
             else{
                 Time.timeScale = 1f;
+                footstepsSFX.Play();
             } 
         }
         
@@ -66,6 +70,7 @@ public class PauseHandler : MonoBehaviour
     }
 
     void gameOverFunc(){
+        footstepsSFX.Pause();
         gameOverMenuActive = true;
         gameOverMenu.SetActive(gameOverMenuActive);
     }
@@ -74,12 +79,14 @@ public class PauseHandler : MonoBehaviour
         isActive = false;
         pauseMenu.SetActive(isActive);
         Time.timeScale = 1f;
+        footstepsSFX.Play();
     }
 
     void Pause(){
         isActive = true;
         pauseMenu.SetActive(isActive);
         Time.timeScale = 0f;
+        footstepsSFX.Pause();
     }
 
     public void Restart(){

@@ -9,6 +9,14 @@ public class MovementHandler : MonoBehaviour
     public Rigidbody rigidBody;
     public BoxCollider topCollider;
 
+    public AudioSource footstepsSFX;
+    public AudioSource jumpSFX;
+    public AudioSource strafeSFX;
+    public AudioSource rollSFX;
+    public AudioSource whackSFX;
+    public AudioSource backgroundMusic;
+    
+
     private int rows;
     private Vector3 jumpHeight = new Vector3(0f, 2f, 0f);
     private Vector3 targetPosition = new Vector3(1.5f, 0f, 0f);
@@ -16,6 +24,7 @@ public class MovementHandler : MonoBehaviour
     private Vector3 currentPos;
     private bool movingRight = false;
     private bool movingLeft = false;
+    
 
     void Start()
     {
@@ -47,6 +56,8 @@ public class MovementHandler : MonoBehaviour
                 tempTarget = currentPos - targetPosition;
                 movingLeft = true;
                 animator.SetBool("isMovingLeft", true);
+                footstepsSFX.Pause();
+                strafeSFX.Play();
             }
             if (movingLeft)
             {
@@ -55,6 +66,7 @@ public class MovementHandler : MonoBehaviour
                 {
                     movingLeft = false;
                     animator.SetBool("isMovingLeft", false);
+                    footstepsSFX.Play();
                     currentPos = Vector3.zero;
                 }
             }
@@ -67,6 +79,8 @@ public class MovementHandler : MonoBehaviour
                 tempTarget = currentPos + targetPosition;
                 movingRight = true;
                 animator.SetBool("isMovingRight", true);
+                footstepsSFX.Pause();
+                strafeSFX.Play();
             }
             if (movingRight)
             {
@@ -75,6 +89,7 @@ public class MovementHandler : MonoBehaviour
                 {
                     movingRight = false;
                     animator.SetBool("isMovingRight", false);
+                    footstepsSFX.Play();
                     currentPos = Vector3.zero;
                 }
             }
@@ -83,17 +98,24 @@ public class MovementHandler : MonoBehaviour
             if (!isJumping && !isRolling && spacePressed && rigidBody.velocity.y == 0)
             {
                 rigidBody.AddForce(jumpHeight * 2.5f, ForceMode.Impulse);
-                animator.SetBool("isJumping", true);                                        // jump
-            }
-            if (isJumping && !spacePressed)
+
+                animator.SetBool("isJumping", true);
+                footstepsSFX.Pause();
+                jumpSFX.Play();                                        // jump
+            }                                       
+
+            if (isJumping && !spacePressed && rigidBody.velocity.y == 0)
             {
                 animator.SetBool("isJumping", false);
+                footstepsSFX.Play();
             }
 
             if (!isRolling && rigidBody.velocity.y == 0 && sPressed)
             {
                 animator.SetBool("isRolling", true);                // roll
                 topCollider.enabled = false;
+                footstepsSFX.Pause();
+                rollSFX.Play();
             }
             if (isRolling && !sPressed)
             {
@@ -102,8 +124,12 @@ public class MovementHandler : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("k") && !movingRight && !movingLeft)
-        {
+        
+        if(Input.GetKeyDown("k") && !movingRight && !movingLeft){
+            backgroundMusic.Stop();
+            footstepsSFX.Stop();
+            whackSFX.Play();
+
             animator.SetBool("gameOver", true);                       // simulated game over
         }
 
@@ -119,8 +145,10 @@ public class MovementHandler : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, tempTarget, 4f * Time.deltaTime);
     }
 
-    void colliderReset()
-    {
+
+    void colliderReset(){
+        footstepsSFX.Play();
+
         topCollider.enabled = true;
 
     }

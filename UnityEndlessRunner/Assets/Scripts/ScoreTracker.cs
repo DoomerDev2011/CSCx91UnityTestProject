@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class ScoreTracker : MonoBehaviour
 {
     [SerializeField] double currentScore, topScore, distance;  // Variables used to keep track of the score
-    public Text scoreText, topScoreText, distanceText;  // this is the text that gets updated based on the variables above 
+    public TextMeshProUGUI scoreText, topScoreText, distanceText;  // this is the text that gets updated based on the variables above 
     public Animator animator;
 
     void Start(){
