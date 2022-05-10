@@ -8,7 +8,7 @@ public class SettingsHandler : MonoBehaviour
     public GameObject settingsMenu;
     public Camera playerCam;
     public Canvas uiCanvas;
-    public Slider fovSlider, uiScaleSlider, soundSlider;
+    public Slider fovSlider, soundSlider;
     public Button returnButton;
     public Dropdown resolutionDropdown;
     public Toggle fullscreenToggle;
@@ -43,11 +43,6 @@ public class SettingsHandler : MonoBehaviour
         PlayerPrefs.SetFloat("fovScale", fovSlider.value);
     }
 
-    public void uiScale(){
-        uiCanvas.scaleFactor = uiScaleSlider.value;
-        PlayerPrefs.SetFloat("uiScale", uiScaleSlider.value);
-    }
-
     public void soundScale(){
         AudioListener.volume = soundSlider.value;
         PlayerPrefs.SetFloat("soundScale", soundSlider.value);
@@ -77,8 +72,6 @@ public class SettingsHandler : MonoBehaviour
     public void initPlayerSettings(){
         fovSlider.value = PlayerPrefs.GetFloat("fovScale");
         fovScale();
-        uiScaleSlider.value = PlayerPrefs.GetFloat("uiScale");
-        uiScale();
         soundSlider.value = PlayerPrefs.GetFloat("soundScale");
         soundScale();
         resolutionDropdown.value = PlayerPrefs.GetInt("resDropdownValue");

@@ -28,6 +28,7 @@ public class RunnerControl : MonoBehaviour
     public float movementX;
     public Collider body;
     public Collider slideSize;
+    public AudioSource DieSfx;
 
     // Start is called before the first frame update
     void Start()
@@ -145,7 +146,7 @@ public class RunnerControl : MonoBehaviour
     }
     private void Die()
     {
-
+        DieSfx.Play();
     }
     private void Slide()
     {
