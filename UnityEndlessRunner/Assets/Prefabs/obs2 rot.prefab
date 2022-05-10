@@ -16,6 +16,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3276149802754112665, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276149802754112665, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276149802754112665, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276149802754112665, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -68,12 +80,16 @@ PrefabInstance:
       value: obs2 rot
       objectReference: {fileID: 0}
     - target: {fileID: 8897006247583284186, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897006247583284186, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
       propertyPath: ground
       value: 
       objectReference: {fileID: 606455075959108270}
     - target: {fileID: 8897006247583284186, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
       propertyPath: deSpawn.x
-      value: -22
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69fa1fd3fa0ba063882ede885d8597c7, type: 3}
