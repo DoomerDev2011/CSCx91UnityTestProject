@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45140117, g: 0.5008937, b: 0.5723182, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140082, g: 0.5008932, b: 0.5723176, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1303,6 +1303,38 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5026819718525858298, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026819718525858298, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2107173697}
+    - target: {fileID: 5026819718525858298, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2107173696}
+    - target: {fileID: 5026819718525858298, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026819718525858298, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: buttonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026819718525858298, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026819718525858298, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: uiSFX, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026819718525858298, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5026819719176497048, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
       propertyPath: animator
       value: 
@@ -1323,8 +1355,34 @@ PrefabInstance:
       propertyPath: currentScore
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5026819719417744311, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: buttonSFX
+      value: 
+      objectReference: {fileID: 1777933510}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+--- !u!114 &2107173696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5026819719417744311, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+  m_PrefabInstance: {fileID: 2107173695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6ea27f80cbb6146af539d73c8d108e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2107173697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5026819719176497048, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+  m_PrefabInstance: {fileID: 2107173695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c304a2255cd54ce42930f048a70e4be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2120893584
 GameObject:
   m_ObjectHideFlags: 0
