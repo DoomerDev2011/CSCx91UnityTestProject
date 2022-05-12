@@ -1299,6 +1299,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5026819719176497048, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1395406325}
+    - target: {fileID: 5026819719176497048, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: footstepsSFX
+      value: 
+      objectReference: {fileID: 2120893586}
+    - target: {fileID: 5026819719417744310, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1395406325}
+    - target: {fileID: 5026819719417744310, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: distance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026819719417744310, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: currentScore
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
 --- !u!1 &2120893584
