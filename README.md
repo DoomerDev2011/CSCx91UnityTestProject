@@ -1,10 +1,10 @@
 # CSCx91 Unity Endless Runner Project Design Doc
 
 ## Table of contents
-* [Unity Installation](#Unity-Installation-for-school-computers:)
+* [Unity Installation](#install)
 
-
-# Unity Installation for school computers:
+<a name="install"></a>
+## Unity Installation for school computers:
 
 <ol>
 
