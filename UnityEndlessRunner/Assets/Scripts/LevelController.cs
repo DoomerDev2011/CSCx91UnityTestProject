@@ -42,8 +42,8 @@ public class LevelController : MonoBehaviour
                 r = Random.Range(0, plane.Length);
             }
             GameObject planeObj = plane[r];
-            Debug.Log(r);
-            Debug.Log(planeObj.gameObject.name);
+            //Debug.Log(r);
+            //Debug.Log(planeObj.gameObject.name);
             pc = planeObj.GetComponent<PlaneController>();
             ground = pc.ground;
             scale = ground.GetComponent<Transform>().lossyScale;
