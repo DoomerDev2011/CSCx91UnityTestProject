@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45140082, g: 0.5008932, b: 0.5723176, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140117, g: 0.5008937, b: 0.5723182, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -166,7 +166,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d2bdaefd08d88404d8514cddc3265b1e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.846
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1235,6 +1235,30 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1900773026, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: jumpSFX
+      value: 
+      objectReference: {fileID: 259031565}
+    - target: {fileID: 1900773026, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: rollSFX
+      value: 
+      objectReference: {fileID: 156785692}
+    - target: {fileID: 1900773026, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: whackSFX
+      value: 
+      objectReference: {fileID: 1100339641}
+    - target: {fileID: 1900773026, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: strafeSFX
+      value: 
+      objectReference: {fileID: 613956955}
+    - target: {fileID: 1900773026, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: footstepsSFX
+      value: 
+      objectReference: {fileID: 2120893586}
+    - target: {fileID: 1900773026, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 544048513}
     - target: {fileID: 1923466438, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1303,6 +1327,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5026819718159860156, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5026819718525858298, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1359,6 +1387,10 @@ PrefabInstance:
       propertyPath: buttonSFX
       value: 
       objectReference: {fileID: 1777933510}
+    - target: {fileID: 5026819720131129442, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506ba6c96b2e14d4584c8b985e9ed118, type: 3}
 --- !u!114 &2107173696 stripped

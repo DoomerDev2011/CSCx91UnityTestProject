@@ -24,7 +24,6 @@ public class RunnerControl : MonoBehaviour
     public float movementX;
     public Collider body;
     public Collider slideSize;
-    public AudioSource DieSfx;
     public Collider topCollider;
     public Collider bottomCollider;
     public Vector3 tempTarget;
@@ -35,6 +34,13 @@ public class RunnerControl : MonoBehaviour
     public bool isJumping;
     public bool isRolling;
     public bool gameOver;
+
+    public AudioSource footstepsSFX;
+    public AudioSource jumpSFX;
+    public AudioSource strafeSFX;
+    public AudioSource rollSFX;
+    public AudioSource whackSFX;
+    public AudioSource backgroundMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +100,7 @@ public class RunnerControl : MonoBehaviour
                     movingLeft = true;
                     pressed = true;
                     animator.SetBool("isMovingLeft", true);
+                    strafeSFX.Play();
                 }
                 
             }
@@ -107,6 +114,7 @@ public class RunnerControl : MonoBehaviour
                     tempTarget = currentPos + targetPosition;
                     movingRight = true;
                     animator.SetBool("isMovingRight", true);
+                    strafeSFX.Play();
                 }
             }
             if (movingLeft)
@@ -134,7 +142,9 @@ public class RunnerControl : MonoBehaviour
             if (!isJumping && spacePressed && rb.velocity.y == 0.0f)
             {
                 rb.AddForce(new Vector3(0, jumpSpeed ,0), ForceMode.Impulse);
-                animator.SetBool("isJumping", true);                                        // jump
+                animator.SetBool("isJumping", true);                             // jump
+                footstepsSFX.Pause();  
+                jumpSFX.Play();                                     
             }
             if (isJumping && !spacePressed)
             {
@@ -158,6 +168,7 @@ public class RunnerControl : MonoBehaviour
                         if (!wasGrounded)
                         {
                             Land();
+                            footstepsSFX.Play();
                         }
                     }
                 }
@@ -166,6 +177,8 @@ public class RunnerControl : MonoBehaviour
             if (!isRolling && rb.velocity.y == 0 && sPressed)
             {
                 Roll();
+                footstepsSFX.Pause();
+                rollSFX.Play();
             }
             if (isRolling && !sPressed)
             {
@@ -174,7 +187,7 @@ public class RunnerControl : MonoBehaviour
             }
             if (Input.GetKeyDown("k") && !movingRight && !movingLeft)
             {
-                animator.SetBool("gameOver", true);                       // simulated game over
+                Die();                      // simulated game over
             }
 
         }
@@ -189,14 +202,6 @@ public class RunnerControl : MonoBehaviour
         if (movementX == 0)
         {
             pressed = false;
-        }
-        if (!isRolling)
-        {
-            topCollider.enabled = true;
-        }
-        else
-        {
-            topCollider.enabled = false;
         }
     }
     private void FixedUpdate()
@@ -244,10 +249,14 @@ public class RunnerControl : MonoBehaviour
     public void Die()
     {
         animator.SetBool("gameOver", true);
+        backgroundMusic.Pause();
+        footstepsSFX.Stop();
+        whackSFX.Play();
     }
+
     public void UseItem()
     {
-        DieSfx.Play();
+    
     }
 
 
@@ -262,5 +271,10 @@ public class RunnerControl : MonoBehaviour
         delay = groundCheckDelay;
     }
 
+    void colliderReset(){
+        footstepsSFX.Play();
 
+        topCollider.enabled = true;
+
+    }
 }

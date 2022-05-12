@@ -16,7 +16,7 @@ public class SettingsHandler : MonoBehaviour
     private bool isActive = false;
     private bool isFullscreen = true;
 
-    void Awake(){
+    void Start(){
         settingsMenu.SetActive(isActive);
         initPlayerSettings();
     }
