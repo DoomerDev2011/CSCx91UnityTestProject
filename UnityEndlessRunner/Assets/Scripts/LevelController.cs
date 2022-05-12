@@ -30,7 +30,7 @@ public class LevelController : MonoBehaviour
                 scale = ground.GetComponent<Transform>().lossyScale;
                 length += scale.z;
                 deSpawn = new Vector3(player.GetComponent<Transform>().position.x, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z - scale.z);
-                plane[0].GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
+                plane[0].GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>(), player.GetComponent<RunnerControl>());
                 Instantiate(plane[0], new Vector3(player.GetComponent<Transform>().position.x, deSpawn.y - 1, deSpawn.z + length), Quaternion.Euler(0, plane[0].GetComponent<Transform>().rotation.eulerAngles.y, 0));
                 last = 0;
                 spawn = new Vector3(deSpawn.x, deSpawn.y - 1, deSpawn.z + length);
@@ -49,7 +49,7 @@ public class LevelController : MonoBehaviour
             scale = ground.GetComponent<Transform>().lossyScale;
             length += scale.z;
             deSpawn = new Vector3(player.GetComponent<Transform>().position.x, player.GetComponent<Transform>().position.y, player.GetComponent<Transform>().position.z - scale.z);
-            planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
+            planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>(),player.GetComponent<RunnerControl>());
             Instantiate(planeObj, new Vector3(player.GetComponent<Transform>().position.x, deSpawn.y - 1, deSpawn.z + length), Quaternion.Euler(0, planeObj.GetComponent<Transform>().rotation.eulerAngles.y, 0));
             last = r;
             spawn = new Vector3(deSpawn.x, deSpawn.y - 1, deSpawn.z + length);
@@ -73,7 +73,7 @@ public class LevelController : MonoBehaviour
         }
 
         GameObject planeObj = plane[r];
-        planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>());
+        planeObj.GetComponent<PlaneController>().SetUp(speed, deSpawn, gameObject.GetComponent<LevelController>(), player.GetComponent<RunnerControl>());
         Instantiate(planeObj, spawn, Quaternion.Euler(0, planeObj.GetComponent<Transform>().rotation.eulerAngles.y, 0));
         last = r;
     }

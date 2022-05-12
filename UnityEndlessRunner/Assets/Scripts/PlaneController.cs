@@ -9,6 +9,7 @@ public class PlaneController : MonoBehaviour
     public Vector3 deSpawn;
     public LevelController level;
     public Rigidbody rb;
+    public RunnerControl player;
     public GameObject ground;
     void Start()
     {
@@ -24,9 +25,14 @@ public class PlaneController : MonoBehaviour
         {
             Remove();
         }
+        if (player.gameOver)
+        {
+            speed = 0;
+        }
     }
-    public void SetUp(float movement, Vector3 deSpawnPoint, LevelController levelController)
+    public void SetUp(float movement, Vector3 deSpawnPoint, LevelController levelController, RunnerControl play)
     {
+        player = play;
         speed = movement;
         deSpawn = deSpawnPoint;
         level = levelController;
