@@ -8,7 +8,7 @@ using TMPro;
 public class ScoreTracker : MonoBehaviour
 {
     [SerializeField] double currentScore, topScore, distance;  // Variables used to keep track of the score
-    public TextMeshProUGUI scoreText, topScoreText, distanceText;  // this is the text that gets updated based on the variables above 
+    public TextMeshProUGUI scoreText, gameOverScoreText, topScoreText, distanceText, gameOverDistanceText;  // this is the text that gets updated based on the variables above 
     public Animator animator;
 
     void Start(){
@@ -24,6 +24,10 @@ public class ScoreTracker : MonoBehaviour
         if(!gameOver){
             scoreUpdate(); 
             distanceTracker(); 
+        }
+        else{
+            gameOverDistanceText.text = distanceText.text;
+            gameOverScoreText.text = scoreText.text;
         }
     }
 
